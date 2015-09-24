@@ -21,7 +21,7 @@ import (
 	"strings"
 	"time"
 
-	"github.com/gin-gonic/gin"
+	"github.com/tvmaly/gin"
 )
 
 const (
@@ -153,7 +153,7 @@ func Middleware(config Config) gin.HandlerFunc {
 				if config.Credentials {
 					context.Writer.Header().Set(AllowCredentialsKey, config.credentials)
 					// Allowed origins cannot be the string "*" cannot be used for a resource that supports credentials.
-					context.Writer.Header().Set(AllowOriginKey, currentOrigin)	
+					context.Writer.Header().Set(AllowOriginKey, currentOrigin)
 				} else if forceOriginMatch {
 					context.Writer.Header().Set(AllowOriginKey, "*")
 				} else {
